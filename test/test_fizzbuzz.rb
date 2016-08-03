@@ -18,7 +18,7 @@ describe 'Fizz Buzz' do
     app.say(0).must_equal 'say-it'
   end
 
-  it 'says applies multiple rules' do
+  it 'applies multiple rules' do
     rules = [
               Rule.new('say', Proc.new { true }),
               Rule.new('-it', Proc.new { true })
