@@ -3,7 +3,7 @@ require 'minitest/spec'
 require_relative '../lib/fizzbuzz'
 require_relative '../lib/rule'
 
-describe 'Fizz Buzz' do
+describe :fizzbuzz do
   it 'says the input' do
     input = Random.new.rand(100)
 
