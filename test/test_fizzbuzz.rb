@@ -11,11 +11,18 @@ describe 'Fizz Buzz' do
     app.say(input).must_equal input
   end
 
-  it 'says the rules value if the input applies to the rule' do
-    rules = [Rule.new('say-it', Proc.new { true })]
+  it 'says the rules if it applies' do
+    rules = [Rule.new('say-it', Proc.new {|input| input == 0 })]
     
     app = FizzBuzz.new(rules)
     app.say(0).must_equal 'say-it'
+  end
+
+  it 'does not say the rule if it does not apply' do
+    rules = [Rule.new('say-it', Proc.new {|input| input > 0 })]
+    
+    app = FizzBuzz.new(rules)
+    app.say(0).must_equal 0
   end
 
   it 'applies multiple rules' do
