@@ -13,14 +13,14 @@ describe :fizzbuzz do
 
   it 'says the rules if it applies' do
     rules = [Rule.new('say-it', Proc.new {|input| input == 0 })]
-    
+
     app = FizzBuzz.new(rules)
     app.say(0).must_equal 'say-it'
   end
 
   it 'does not say the rule if it does not apply' do
     rules = [Rule.new('say-it', Proc.new {|input| input > 0 })]
-    
+
     app = FizzBuzz.new(rules)
     app.say(0).must_equal 0
   end
