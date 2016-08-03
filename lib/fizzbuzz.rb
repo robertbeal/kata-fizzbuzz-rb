@@ -1,17 +1,13 @@
 
 class FizzBuzz
   def initialize(rules)
-    @rules = rules.sort.to_h
+    @rules = rules
   end
 
   def say(number)
-    response = ''
-  
-    @rules.each do |key, value|
-      if(number % key == 0)
-        response += value;
-      end
-    end
+    response = @rules.select{ |rule| rule.applies_to(number) }
+                     .map{ |rule| rule.say }
+                     .join
 
     return response.empty? ? number : response
   end
