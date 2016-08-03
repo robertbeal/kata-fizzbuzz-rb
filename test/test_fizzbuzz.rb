@@ -12,14 +12,14 @@ describe :fizzbuzz do
   end
 
   it 'says the rules if it applies' do
-    rules = [Rule.new('say-it', Proc.new {|input| input == 0 })]
+    rules = [Rule.new('say-it', proc {|input| input == 0 })]
 
     app = FizzBuzz.new(rules)
     app.say(0).must_equal 'say-it'
   end
 
   it 'does not say the rule if it does not apply' do
-    rules = [Rule.new('say-it', Proc.new {|input| input > 0 })]
+    rules = [Rule.new('say-it', proc {|input| input > 0 })]
 
     app = FizzBuzz.new(rules)
     app.say(0).must_equal 0
@@ -27,8 +27,8 @@ describe :fizzbuzz do
 
   it 'applies multiple rules' do
     rules = [
-              Rule.new('say', Proc.new { true }),
-              Rule.new('-it', Proc.new { true })
+              Rule.new('say', proc { true }),
+              Rule.new('-it', proc { true })
             ]
 
     app = FizzBuzz.new(rules)

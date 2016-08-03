@@ -5,10 +5,8 @@ class FizzBuzz
   end
 
   def say(number)
-    response = @rules.select{ |rule| rule.applies_to(number) }
-                     .map{ |rule| rule.say }
-                     .join
+    rules = @rules.select{ |rule| rule.applies_to(number) }
 
-    return response.empty? ? number : response
+    rules.empty? ? number : rules.map{ |rule| rule.say }.join
   end
 end
